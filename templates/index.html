@@ -1,1 +1,43 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image to PDF Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h2>🧾 PDF Creator</h2>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Convert Images to a Single PDF</h1>
+      <p>Upload one or more images and we'll convert them into a clean, single PDF file.</p>
+    </section>
+
+    <section class="upload-box">
+      <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="images" accept="image/*" multiple required>
+        <button type="submit">Convert to PDF</button>
+      </form>
+    </section>
+
+    <section class="features">
+      <h3>Why use our tool?</h3>
+      <ul>
+        <li>📱 Mobile Friendly</li>
+        <li>⚡ Super Fast Conversion</li>
+        <li>🔒 100% Free & Secure</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Image to PDF | Made with ❤️</p>
+  </footer>
+</body>
+</html>

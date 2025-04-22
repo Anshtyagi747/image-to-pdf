@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +8,23 @@
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+  <div class="glow-bg"></div>
+
   <header>
-    <h2>🧾 PDF Creator</h2>
+    <h2>🧾 PDF Creator made by ANSH TYAGI</h2>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Convert Images to a Single PDF</h1>
+      <h1 class="neon-text">Convert Images to a Single PDF</h1>
       <p>Upload one or more images and we'll convert them into a clean, single PDF file.</p>
     </section>
 
     <section class="upload-box">
       <form method="POST" enctype="multipart/form-data">
         <input type="file" name="images" accept="image/*" multiple required>
-        <button type="submit">Convert to PDF</button>
+        <p id="file-count-msg" class="file-count"></p>
+        <button type="submit" class="glow-btn">click to download PDF</button>
       </form>
     </section>
 
@@ -37,7 +39,17 @@
   </main>
 
   <footer>
-    <p>© 2025 Image to PDF | Made with ❤️</p>
+    <p> Made by the student of galgotiyas university</p>
   </footer>
+
+  <script>
+    const fileInput = document.querySelector('input[type="file"]');
+    const msg = document.getElementById('file-count-msg');
+
+    fileInput.addEventListener('change', () => {
+      const count = fileInput.files.length;
+      msg.textContent = count ? `You have selected ${count} image${count > 1 ? 's' : ''}.` : '';
+    });
+  </script>
 </body>
 </html>

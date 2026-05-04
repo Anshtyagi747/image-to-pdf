@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to PDF</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Upload Images → Get PDF</h2>
+
+<form id="form">
+    <input type="file" name="images" multiple accept="image/*" required>
+    <br><br>
+    <button type="submit">Generate PDF</button>
+</form>
+
+<p id="status"></p>
+
+<script>
+const form = document.getElementById("form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    status.innerText = "Processing... ⏳";
+
+    const formData = new FormData(form);
+
+    const res = await fetch("/upload", {
+        method: "POST",
+        body: formData
+    });
+
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    // 🔥 Mobile friendly download
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "images.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    status.innerText = "PDF Downloaded ✅";
+});
+</script>
+
+</body>
+</html>
